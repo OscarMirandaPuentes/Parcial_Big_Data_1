@@ -1,0 +1,13 @@
+{
+    "dev": {
+        "app_function": "app.f",
+        "aws_region": "us-east-1",
+        "project_name": "mitula",
+        "runtime": "python3.10",
+        "s3_bucket": "parcial-def",
+        "keep_warm": false,
+        "apigateway_enabled": false,
+        "manage_roles": false,
+        "role_name": "LabRole"
+    }
+}
