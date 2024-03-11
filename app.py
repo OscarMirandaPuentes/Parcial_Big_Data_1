@@ -9,7 +9,7 @@ def f(event, context):
         response = requests.get(url)
         
         # Almacenar en S3
-        bucket_name = 'bucket-raw'
+        bucket_name = 'parcial-def'
         key = f'casas/contenido-pag-{i}-{datetime.now().strftime("%Y-%m-%d")}.html'
         
         s3 = boto3.client('s3')
