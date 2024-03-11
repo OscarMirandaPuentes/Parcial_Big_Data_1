@@ -10,7 +10,8 @@ def download_and_store_pages(event, context):
         
         # Almacenar en S3
         bucket_name = 'parcial-def'
-        key = f'casas/contenido-pag-{i}-{datetime.now().strftime("%Y-%m-%d")}.html'
+        date_string = datetime.now().strftime("%Y-%m-%d")
+        key = f'casas/contenido-pag-{i}-{date_string}.html'
         
         s3 = boto3.client('s3')
         s3.put_object(
