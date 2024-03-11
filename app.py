@@ -20,6 +20,6 @@ def download_and_store_pages(event, context):
             Key=key
         )
 
-def handler(event, context):
+def f(event, context):
     # Punto de entrada para Zappa
     download_and_store_pages(event, context)
