@@ -4,14 +4,14 @@ from datetime import datetime
 
 def f(event, context):
     s3 = boto3.client('s3')
-    bucket_name = 'buckets-raws'
+    bucket_name = 'parcial-def'
     
     for page_number in range(1, 6):
         if(page_number==1):
             url = f'https://casas.mitula.com.co/casas/pereira/'
         else:
             url = f'https://casas.mitula.com.co/casas/pereira/{page_number}'
-        response = requests.get(url)
+            response = requests.get(url)
         
         if response.status_code == 200:
             current_date = datetime.now().strftime('%Y-%m-%d')
