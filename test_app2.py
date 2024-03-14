@@ -4,8 +4,8 @@ from app2 import handler  # Import your function here
 
 
 class TestLambdaHandlerProcessing(unittest.TestCase):
-    @patch('extract_data.boto3.client')
-    @patch('extract_data.boto3.resource')
+    @patch('app2.boto3.client')
+    @patch('app2.boto3.resource')
     def test_lambda_handler_processing(
             self, mock_boto3_resource, mock_boto3_client):
         # Simulate the behavior of boto3
