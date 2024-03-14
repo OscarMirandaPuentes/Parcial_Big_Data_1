@@ -49,7 +49,7 @@ def handler(event, context):
     y guardarlos en un archivo CSV en AWS S3.
     """
     s3 = boto3.client('s3')
-    bucket_name = 'parcial-def/casas/'
+    bucket_name = 'parcial-def/casas'
 
     # Obtener la fecha actual
     current_date = datetime.now().strftime('%Y-%m-%d')
