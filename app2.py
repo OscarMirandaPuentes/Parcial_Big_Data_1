@@ -49,7 +49,7 @@ def handler(event, context):
     y guardarlos en un archivo CSV en AWS S3.
     """
     s3 = boto3.client('s3')
-    bucket_name = 'buckets-raws'
+    bucket_name = 'parcial-def'
 
     # Obtener la fecha actual
     current_date = datetime.now().strftime('%Y-%m-%d')
@@ -91,8 +91,6 @@ def handler(event, context):
         errors='coerce')
 
     df['Area'] = df['Area'].str.extract(r'(\d+)').astype(float)
-    # df['Area'] = df['Area'].apply(lambda x: '{:.0f} m²'.format(x))  #
-    # Agregar el sufijo 'm²'
 
     # Guardar el DataFrame como archivo CSV en S3
     csv_key = (f'casas/year={current_date[:4]}/'
@@ -100,7 +98,7 @@ def handler(event, context):
            f'day={current_date[8:]}/'
            f'{current_date}.csv')
     csv_buffer = df.to_csv(index=False)
-    s3.put_object(Body=csv_buffer, Bucket='buckets-final', Key=csv_key)
+    s3.put_object(Body=csv_buffer, Bucket='parcial-final', Key=csv_key)
 
     return {
         'statusCode': 200,
