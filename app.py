@@ -8,9 +8,9 @@ def f(event, context):
     
     for page_number in range(1, 6):
         if(page_number==1):
-            url = f'https://casas.mitula.com.co/casas/pereira/'
+            url = f'https://casas.mitula.com.co/casas/bogota'
         else:
-            url = f'https://casas.mitula.com.co/casas/pereira/{page_number}'
+            url = f'https://casas.mitula.com.co/casas/bogota{page_number}'
             response = requests.get(url)
         
         if response.status_code == 200:
