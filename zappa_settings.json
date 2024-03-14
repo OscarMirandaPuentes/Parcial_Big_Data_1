@@ -4,7 +4,7 @@
         "aws_region": "us-east-1",
         "project_name": "Parcial",
         "runtime": "python3.10",
-        "s3_bucket": "parcial-def",
+        "s3_bucket": "Parcialdef",
         "keep_warm": false,
         "apigateway_enabled": false,
         "manage_roles": false,
@@ -24,7 +24,7 @@
         "role_name": "LabRole",
         "manage_roles": false,
         "apigateway_enabled": false,
-        "project_name": "Parcial",
+        "project_name": "Parcialdef",
         "runtime": "python3.10",
         "s3_bucket": "parcial-final",
         "events": [
