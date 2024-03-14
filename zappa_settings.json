@@ -2,9 +2,9 @@
      "dev": {
         "app_function": "app.f",
         "aws_region": "us-east-1",
-        "project_name": "bigdata2",
+        "project_name": "Parcial",
         "runtime": "python3.10",
-        "s3_bucket": "buckets-raws",
+        "s3_bucket": "parcial-def",
         "keep_warm": false,
         "apigateway_enabled": false,
         "manage_roles": false,
@@ -24,12 +24,12 @@
         "role_name": "LabRole",
         "manage_roles": false,
         "apigateway_enabled": false,
-        "project_name": "bigdata2",
+        "project_name": "Parcial",
         "runtime": "python3.10",
-        "s3_bucket": "buckets-final",
+        "s3_bucket": "parcial-final",
         "events": [
             {
-                "function": "extract_data.handler",
+                "function": "app2.handler",
                 "expression": "cron(5 12 * * ? *)"
             }
         ]
