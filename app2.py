@@ -49,7 +49,7 @@ def handler(event, context):
     y guardarlos en un archivo CSV en AWS S3.
     """
     s3 = boto3.client('s3')
-    bucket_name = 'parcial-def/casas'
+    bucket_name = 'parcial-def'
 
     # Obtener la fecha actual
     current_date = datetime.now().strftime('%Y-%m-%d')
@@ -68,6 +68,7 @@ def handler(event, context):
             # Extraer los datos de la página HTML y agregarlos a la lista
             data = extract_data(html_content)
             all_data.extend(data)
+            print(all_data)
 
     # Crear un DataFrame pandas con todos los datos recolectados
     df = pd.DataFrame(
