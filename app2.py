@@ -11,9 +11,9 @@ def extract_data(html_content):
     adicionales de las páginas HTML.
     """
     soup = BeautifulSoup(html_content, 'html.parser')
-    # print("HTML:     ",soup)
+    
     properties = soup.find_all('div', class_='listing-card__information')
-    # print("PROPERTIES: ",properties)
+    
     data = []
 
     for prop in properties:
@@ -38,7 +38,7 @@ def extract_data(html_content):
             adicional_text='No disponible'
 
         data.append([price, area, bedrooms, adicional_text])
-        # print(data)
+        
 
     return data
 
@@ -51,14 +51,14 @@ def handler(event, context):
     s3 = boto3.client('s3')
     bucket_name = 'parcial-def'
 
-    # Obtener la fecha actual
+    
     current_date = datetime.now().strftime('%Y-%m-%d')
 
     # Obtener la lista de objetos en el bucket
     response = s3.list_objects(Bucket=bucket_name)
     all_data = []
 
-    # for obj in response.get('Contents', []):
+    
     if 'Contents' in response:
         for obj in response['Contents']:
             # Obtener el contenido de cada objeto
@@ -85,7 +85,7 @@ def handler(event, context):
             '',
             regex=True),
         errors='coerce')
-    df['Price'] = df['Price'].astype('Int64')  # Convertir a tipo Int64
+    df['Price'] = df['Price'].astype('Int64')
 
     df['Bedrooms'] = pd.to_numeric(
         df['Bedrooms'].str.split(' ').str[0],
