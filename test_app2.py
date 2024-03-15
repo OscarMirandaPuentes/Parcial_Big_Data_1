@@ -1,7 +1,8 @@
 import unittest
 from unittest.mock import Mock, patch
-from app2 import handler  # Import your function here
+from app2 import handler, extract_data  # Import your function here
 
+url = 'https://casas.mitula.com.co/casas/bogota'
 
 class TestLambdaHandlerProcessing(unittest.TestCase):
     @patch('app2.boto3.client')
@@ -9,6 +10,15 @@ class TestLambdaHandlerProcessing(unittest.TestCase):
     def test_lambda_handler_processing(
             self, mock_boto3_resource, mock_boto3_client):
         # Simulate the behavior of boto3
+
+         try:
+        # Descargar la página del tiempo
+        response = urllib.request.urlopen(url)
+        data = response.read()
+                
+        extract__data(data)
+
+        '''  
         mock_s3_resource = mock_boto3_resource.return_value
         # mock_s3_client = mock_boto3_client.return_value
 
@@ -20,7 +30,7 @@ class TestLambdaHandlerProcessing(unittest.TestCase):
 
         # Execute the function under test
         result = handler(None, None)
-
+        '''
         # Verify calls and behavior
         self.assertEqual(result['statusCode'], 200)
         # Add more assertions as necessary
