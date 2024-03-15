@@ -5,11 +5,7 @@ import pandas as pd
 
 
 def extract_data(html_content):
-    """
-    Función para extraer el precio, metraje,
-    número de habitaciones y características
-    adicionales de las páginas HTML.
-    """
+    
     soup = BeautifulSoup(html_content, 'html.parser')
     
     properties = soup.find_all('div', class_='listing-card__information')
@@ -44,10 +40,7 @@ def extract_data(html_content):
 
 
 def handler(event, context):
-    """
-    Función para procesar los datos descargados
-    y guardarlos en un archivo CSV en AWS S3.
-    """
+
     s3 = boto3.client('s3')
     bucket_name = 'parcial-def'
 
